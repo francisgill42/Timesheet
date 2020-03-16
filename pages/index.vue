@@ -9,7 +9,7 @@ cols="12"
 md="6"
 >
 <v-text-field
-v-model="input.item"
+v-model="input.task"
 label="Task"
 required
 ></v-text-field>
@@ -21,7 +21,7 @@ md="4"
 >
 <v-text-field
 type="number"
-v-model="input.amount"
+v-model="input.duration"
 label="Duration"
 required
 ></v-text-field>
@@ -66,7 +66,7 @@ md="2"
 cols="12"
 md="2"
 >
-<v-btn @click="add_item">Add Task +</v-btn>
+<v-btn @click="add_task">Add Task +</v-btn>
 </v-col>
 
 <v-col
@@ -93,14 +93,14 @@ export default {
 data: () => ({
 res:'',    
 inputs: [{
-    item:'',
-    amount:0,
+    task:'',
+    duration:0,
 }],
 }),
 computed:{
     total(){
         return this.inputs.reduce((sum,p) => {
-            return parseInt(sum) + parseInt(p.amount)
+            return parseInt(sum) + parseInt(p.duration)
         },0)
     },
       ibft_limit () {
@@ -113,7 +113,7 @@ created () {
 methods:{
 save () {
    
-            // this.$axios.post('transaction',{'item' : 'item', 'amount' : 321})
+            // this.$axios.post('transaction',{'task' : 'task', 'duration' : 321})
             //     .then(res =>  console.log(res.data) );        
 
                         console.log(this.inputs);
@@ -122,10 +122,10 @@ save () {
 deleteRow(index) {
 this.inputs.splice(index,1)
 },
-add_item(){
+add_task(){
 this.inputs.push({
-item: '',
-amount: 0
+task: '',
+duration: 0
 });
 },
 }
