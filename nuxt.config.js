@@ -42,6 +42,7 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/pwa',
   ],
   axios: {
       baseURL: 'http://localhost:8000/api/' 
